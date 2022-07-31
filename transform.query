@@ -1,0 +1,21 @@
+PREFIX : <http://example.com/>
+PREFIX jarql: <http://jarql.com/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+CONSTRUCT { 
+    ?p :category ?category.
+    ?p :link ?link.
+    ?p :headline ?headline.
+    ?p :authors ?authors.
+    ?p dc:description ?short_description.
+    ?p dct:created ?date.
+}
+WHERE {
+    ?p jarql:category ?category.
+    ?p jarql:link ?link.
+    ?p jarql:headline ?headline.
+    ?p jarql:authors ?authors.
+    ?p jarql:short_description ?short_description.
+    ?p jarql:date ?date.
+}
