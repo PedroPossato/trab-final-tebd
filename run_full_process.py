@@ -1,11 +1,11 @@
 from json_to_turle import json_to_turtle
-from main import final_transformation
+from final_transformation import final_transformation
 
 try:
     print("Starting JSON to Turtle conversion...")
     success = json_to_turtle()
 
-    if success:    
+    if success:
         print("Turtle file generated!")
         print("Starting final transformation...")
         final_transformation()

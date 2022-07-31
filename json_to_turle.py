@@ -1,5 +1,4 @@
 import subprocess
-from datetime import datetime
 
 def json_to_turtle():
 
@@ -16,3 +15,6 @@ def json_to_turtle():
             file.write(stdout)
 
     return bool(stdout)
+
+if __name__ == '__main__':
+    json_to_turtle()
