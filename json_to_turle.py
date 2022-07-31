@@ -1,21 +1,18 @@
 import subprocess
 from datetime import datetime
 
-start = datetime.now()
+def json_to_turtle():
 
-process = subprocess.Popen(['java', '-jar', 'jarql-1.0.0.jar', 'news.json', 'transform.query'],
-                     stdout=subprocess.PIPE, 
-                     stderr=subprocess.PIPE)
+    process = subprocess.Popen(['java', '-jar', 'jarql-1.0.0.jar', 'news.json', 'transform.query'],
+                        stdout=subprocess.PIPE, 
+                        stderr=subprocess.PIPE)
 
-stdout, _ = process.communicate()
+    stdout, _ = process.communicate()
 
-stdout = stdout.decode()
+    stdout = stdout.decode()
 
-if stdout:
-    with open('results.ttl', 'w') as file:
-        file.write(stdout)
+    if stdout:
+        with open('results.ttl', 'w') as file:
+            file.write(stdout)
 
-else:
-    print("Empty")
-
-print(f"Execução durou {(datetime.now() - start).seconds} segundos.")
+    return bool(stdout)
